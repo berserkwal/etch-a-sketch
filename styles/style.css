@@ -1,5 +1,6 @@
 :root {
 	--color-neutral-900: #282828;
+	--color-neutral-900-opa: #2828281a;
 	--color-neutral-500: #535353;
 	--color-neutral-200: #dedede;
 	--color-neutral-100: #ffffff;
@@ -7,6 +8,102 @@
 	--color-mac-yellow: #ffc800;
 	--color-mac-green: #00e244;
 	--color-stroke: #3a3a3a;
-	--shadow: 0 4px 4px #000;
+	--shadow: 0 4px 4px #00000040;
 	--font-family: "Open Sans", sans-serif;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: calc(var(--vh) * 100);
+	background: fixed center/cover no-repeat
+		url("https://unsplash.com/photos/PK0MW4TjvzE/download?force=true&w=1920");
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--color-neutral-200);
+	font-family: var(--font-family);
+	z-index: -1;
+}
+
+.background-blur {
+	position: absolute;
+	top: 0;
+	left: 0;
+	/* background-color: var(--color-neutral-900-opa); */
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	/* padding-inline: 1rem; */
+	/* opacity: 0.2; */
+	backdrop-filter: blur(25px);
+}
+.window {
+	margin-top: 5rem;
+	z-index: 1;
+	background-color: var(--color-neutral-900);
+	height: 70%;
+	max-height: 500px;
+	width: 95%;
+	max-width: 800px;
+	border-radius: 8px;
+	box-shadow: var(--shadow);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+.title-bar {
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 12px;
+	padding: 0.25rem;
+	background-color: var(--color-neutral-500);
+	border-bottom: 1px solid var(--color-stroke);
+	user-select: none;
+}
+
+.mac-esque-buttons {
+	display: flex;
+	gap: 0.5rem;
+	width: max-content;
+	height: max-content;
+	position: absolute;
+	left: 1rem;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.mac-buttons {
+	height: 14px;
+	width: 14px;
+	/* background-color: red; */
+	border-radius: 50%;
+}
+
+.mac-buttons.close {
+	background-color: var(--color-mac-red);
+}
+.mac-buttons.maximize {
+	background-color: var(--color-mac-yellow);
+}
+.mac-buttons.minimize {
+	background-color: var(--color-mac-green);
+}
+
+footer {
+	background-color: var(--color-neutral-500);
+	z-index: 1;
+	width: 100%;
+	text-align: center;
+	padding: 0.5rem;
 }
