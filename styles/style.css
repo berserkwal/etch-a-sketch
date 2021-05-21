@@ -8,7 +8,7 @@
 	--color-mac-yellow: #ffc800;
 	--color-mac-green: #00e244;
 	--color-stroke: #3a3a3a;
-	--shadow: 0 4px 4px #00000040;
+	--shadow: 4px 4px 4px #00000040;
 	--font-family: "Open Sans", sans-serif;
 }
 
@@ -98,6 +98,71 @@ body {
 }
 .mac-buttons.minimize {
 	background-color: var(--color-mac-green);
+}
+
+.work-area {
+	height: 100%;
+	display: flex;
+}
+
+.toolbar {
+	background-color: var(--color-neutral-500);
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+	align-items: center;
+	padding-inline: 0.25rem;
+	padding-top: 1rem;
+	border-right: solid 2px var(--color-stroke);
+}
+
+.toolbar-button {
+	text-align: center;
+	width: 30px;
+	height: 25px;
+	font-size: 1.2rem;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	color: var(--color-neutral-200);
+	border-radius: 2px;
+}
+
+.toolbar-button:hover,
+input[type="radio"]:checked + .toolbar-button {
+	background-color: var(--color-neutral-900);
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+.artboard {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.canvas {
+	height: 400px;
+	width: 400px;
+	background-color: var(--color-neutral-100);
+	box-shadow: var(--shadow);
+	display: grid;
+	grid-template: repeat(64, 1fr) / repeat(64, 1fr);
+	cursor: crosshair;
+}
+
+.pixel {
+	box-sizing: unset;
+	/* border: 1px solid black; */
+	transition: all 10s;
+}
+
+.pixel:hover {
+	background-color: black;
+	transition: all 0s;
 }
 
 footer {
