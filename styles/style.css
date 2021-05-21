@@ -1,0 +1,12 @@
+:root {
+	--color-neutral-900: #282828;
+	--color-neutral-500: #535353;
+	--color-neutral-200: #dedede;
+	--color-neutral-100: #ffffff;
+	--color-mac-red: #ff3b48;
+	--color-mac-yellow: #ffc800;
+	--color-mac-green: #00e244;
+	--color-stroke: #3a3a3a;
+	--shadow: 0 4px 4px #000;
+	--font-family: "Open Sans", sans-serif;
+}
