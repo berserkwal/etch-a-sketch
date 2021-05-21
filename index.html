@@ -9,25 +9,55 @@
 		/>
 		<title>Document</title>
 		<link rel="stylesheet" href="./styles/style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		<script
+			src="https://kit.fontawesome.com/3a1e4c9014.js"
+			crossorigin="anonymous"
+		></script>
 	</head>
 	<body>
 		<div class="background-blur"></div>
 		<div class="window">
 			<div class="title-bar">
 				<div class="mac-esque-buttons">
-					<span class="mac-buttons close"></span>
-					<span class="mac-buttons maximize"></span>
-					<span class="mac-buttons minimize"></span>
+					<span
+						title="You probably shouldn't try this!"
+						class="mac-buttons close"
+					></span>
+					<span
+						title="You probably shouldn't try this!"
+						class="mac-buttons maximize"
+					></span>
+					<span
+						title="You probably shouldn't try this!"
+						class="mac-buttons minimize"
+					></span>
 				</div>
 				<h3 class="title">Etch-a-Sketch</h3>
 			</div>
 			<div class="work-area">
 				<div class="toolbar">
-					<button class="toolbar-button brush"></button>
-					<button class="toolbar-button clear"></button>
-					<button class="toolbar-button eraser"></button>
-					<input type="color" class="toolbar-button color-picker" />
-					<button class="toolbar-button"></button>
+					<button title="Brush" class="toolbar-button brush">
+						<i class="fas fa-paint-brush"></i>
+					</button>
+					<button title="Eraser" class="toolbar-button eraser">
+						<i class="fas fa-eraser"></i>
+					</button>
+					<button title="Clear all" class="toolbar-button clear">
+						<i class="fas fa-trash"></i>
+					</button>
+					<button title="Resize" class="toolbar-button">
+						<i class="fas fa-expand-arrows-alt"></i>
+					</button>
+					<input
+						title="Pick a color"
+						type="color"
+						class="toolbar-button color-picker"
+					/>
 				</div>
 				<div class="artboard"></div>
 			</div>
