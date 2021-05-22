@@ -46,6 +46,7 @@ body {
 	backdrop-filter: blur(25px);
 }
 .window {
+	position: relative;
 	margin-top: 5rem;
 	z-index: 1;
 	background-color: var(--color-neutral-900);

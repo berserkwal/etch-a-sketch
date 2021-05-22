@@ -85,6 +85,32 @@
 				</div>
 			</div>
 		</div>
+		<div class="resize-modal no-visibility">
+			<div class="overlay-effect"></div>
+			<div class="card">
+				<div class="title-bar">
+					<div class="mac-esque-buttons">
+						<div class="mac-buttons close"
+							id="close-modal"></div>
+					</div>
+					<h3 class="title">Resize Canvas</h3>
+				</div>
+				<div class="selection-area">
+					<label class="range-slider-label">
+						<input min="8"
+							max="64"
+							step="8"
+							value="8"
+							class="size-selection"
+							type="range">
+						<div class="grid-size">
+							<span>8</span>×<span>8</span>
+						</div>
+					</label>
+					<button class="selection">Submit</button>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<footer class="footer">
@@ -92,32 +118,6 @@
 		<a href="https://www.github.com/berserkwal">berserkwal</a>
 	</footer>
 
-	<div class="resize-modal no-visibility">
-		<div class="overlay-effect"></div>
-		<div class="card">
-			<div class="title-bar">
-				<div class="mac-esque-buttons">
-					<div class="mac-buttons close"
-						id="close-modal"></div>
-				</div>
-				<h3 class="title">Resize Canvas</h3>
-			</div>
-			<div class="selection-area">
-				<label class="range-slider-label">
-					<input min="8"
-						max="64"
-						step="8"
-						value="8"
-						class="size-selection"
-						type="range">
-					<div class="grid-size">
-						<span>8</span>×<span>8</span>
-					</div>
-				</label>
-				<button class="selection">Submit</button>
-			</div>
-		</div>
-	</div>
 	<script src="./scripts/main.js"></script>
 </body>
 
