@@ -77,6 +77,10 @@ function openModal() {
 function closeModal() {
 	modalOverlay.classList.add("no-visibility");
 	resizeButton.classList.remove("selected");
+	gridSizeRange.value = dimension;
+	gridDim.forEach((item) => {
+		item.innerText = dimension;
+	});
 }
 
 function brush() {
