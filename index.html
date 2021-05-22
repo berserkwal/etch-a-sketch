@@ -46,7 +46,7 @@
 					class="toolbar-button clear">
 					<i class="fas fa-trash"></i>
 				</button>
-				<button title="Resize"
+				<button title="Resize Canvas"
 					class="toolbar-button resize">
 					<i class="fas fa-expand-arrows-alt"></i>
 				</button>
@@ -59,7 +59,27 @@
 				<div class="artboard">
 					<div class="canvas"></div>
 				</div>
-				<div class="window-footer"></div>
+				<div class="window-footer">
+					<div class="grid-size">
+						Grid Size:&nbsp;
+						<span>8</span>×<span>8</span>
+					</div> |
+					<div class="shortcuts">
+						<div>
+							Shortcuts:&nbsp;
+							<span class="icon">B </span>Brush
+						</div>
+						<div>
+							<span class="icon">E </span>Eraser
+						</div>
+						<div>
+							<span class="icon">C </span>Clear
+						</div>
+						<div>
+							<span class="icon">R </span>Resize
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -81,13 +101,15 @@
 			</div>
 			<div class="selection-area">
 				<label class="range-slider-label">
-					<input min="16"
-						max="96"
-						step="16"
-						value="16"
+					<input min="8"
+						max="64"
+						step="8"
+						value="8"
 						class="size-selection"
 						type="range">
-					<div><span>16</span>×<span>16</span></div>
+					<div class="grid-size">
+						<span>8</span>×<span>8</span>
+					</div>
 				</label>
 				<button class="selection">Submit</button>
 			</div>
