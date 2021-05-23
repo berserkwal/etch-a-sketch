@@ -19,12 +19,17 @@ const colorPicker = document.querySelector(".toolbar-button.color-picker");
 const randomizeButton = document.querySelector(".toolbar-button.randomize");
 const modalOverlay = document.querySelector(".resize-modal");
 const modalCloseButton = document.querySelector("#close-modal");
+const windowMaximizeButton = document.querySelector("#maximize-window");
+const windowCloseButton = document.querySelector("#close-window");
+const windowMinimizeButton = document.querySelector("#minimize-window");
 const gridSizeRange = document.querySelector(".size-selection");
 const gridSizeSubmit = document.querySelector(".selection");
 const gridDim = document.querySelectorAll(".grid-size>span");
+const appIcon = document.querySelector(".app-icon");
+const appWindow = document.querySelector(".window");
 
 let color = "black";
-let dimension = 8;
+let dimension = 24;
 
 let isDrawable = false;
 let isRandom = false;
@@ -78,11 +83,18 @@ function setPixelEvents() {
 
 function openModal() {
 	modalOverlay.classList.remove("no-visibility");
+	setTimeout(
+		() =>
+			document.querySelector(".card").classList.remove("no-visibility-window"),
+		1
+	);
 	resizeButton.classList.add("selected");
 }
 function closeModal() {
-	modalOverlay.classList.add("no-visibility");
+	// modalOverlay.classList.add("no-visibility");
 	resizeButton.classList.remove("selected");
+	document.querySelector(".card").classList.add("no-visibility-window");
+	setTimeout(() => modalOverlay.classList.add("no-visibility"), 400);
 	gridSizeRange.value = dimension;
 	gridDim.forEach((item) => {
 		item.innerText = dimension;
@@ -173,3 +185,28 @@ window.addEventListener("keydown", (e) => {
 });
 
 randomizeButton.addEventListener("click", randomize);
+
+windowMaximizeButton.addEventListener("click", () => {
+	appWindow.classList.toggle("maximized");
+});
+
+windowCloseButton.addEventListener("click", () => {
+	appWindow.classList.add("no-visibility-window");
+	document.querySelector(".background-blur").classList.add("no-visibility");
+	removePixels();
+	generateGrid(dimension);
+	brush();
+	isRandom = false;
+	isDrawable = false;
+});
+
+windowMinimizeButton.addEventListener("click", () => {
+	appWindow.classList.add("no-visibility-window");
+	document.querySelector(".background-blur").classList.add("no-visibility");
+});
+
+appIcon.addEventListener("dblclick", () => {
+	console.log("double click");
+	document.querySelector(".background-blur").classList.remove("no-visibility");
+	appWindow.classList.remove("no-visibility-window");
+});
