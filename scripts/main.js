@@ -16,6 +16,7 @@ const eraserButton = document.querySelector(".toolbar-button.eraser");
 const clearButton = document.querySelector(".toolbar-button.clear");
 const resizeButton = document.querySelector(".toolbar-button.resize");
 const colorPicker = document.querySelector(".toolbar-button.color-picker");
+const randomizeButton = document.querySelector(".toolbar-button.randomize");
 const modalOverlay = document.querySelector(".resize-modal");
 const modalCloseButton = document.querySelector("#close-modal");
 const gridSizeRange = document.querySelector(".size-selection");
@@ -26,6 +27,7 @@ let color = "black";
 let dimension = 8;
 
 let isDrawable = false;
+let isRandom = false;
 
 resize(dimension);
 
@@ -53,7 +55,11 @@ function generateGrid() {
 }
 
 function draw(e) {
-	e.target.style.backgroundColor = color;
+	if (isRandom)
+		e.target.style.backgroundColor = `rgb(${Math.floor(
+			Math.random() * 256
+		)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)})`;
+	else e.target.style.backgroundColor = color;
 }
 
 function removePixels() {
@@ -67,7 +73,7 @@ function removePixels() {
 
 function setPixelEvents() {
 	const pixels = document.querySelectorAll(".pixel");
-	pixels.forEach((pixel) => pixel.addEventListener("mousemove", draw));
+	pixels.forEach((pixel) => pixel.addEventListener("mouseover", draw));
 }
 
 function openModal() {
@@ -91,8 +97,20 @@ function brush() {
 
 function erase() {
 	color = "white";
+	isRandom = false;
 	eraserButton.classList.add("selected");
 	brushButton.classList.remove("selected");
+	randomizeButton.classList.remove("selected");
+}
+
+function randomize() {
+	if (randomizeButton.classList.contains("selected")) {
+		isRandom = false;
+		randomizeButton.classList.remove("selected");
+	} else {
+		isRandom = true;
+		randomizeButton.classList.add("selected");
+	}
 }
 
 // event-listeners below
@@ -115,7 +133,7 @@ canvas.addEventListener("click", () => {
 	isDrawable = !isDrawable;
 	const pixels = document.querySelectorAll(".pixel");
 	if (isDrawable) setPixelEvents();
-	else pixels.forEach((pixel) => pixel.removeEventListener("mousemove", draw));
+	else pixels.forEach((pixel) => pixel.removeEventListener("mouseover", draw));
 });
 
 colorPicker.addEventListener("change", (e) => {
@@ -148,5 +166,10 @@ window.addEventListener("keydown", (e) => {
 		case "KeyR":
 			openModal();
 			break;
+		case "KeyX":
+			randomize();
+			break;
 	}
 });
+
+randomizeButton.addEventListener("click", randomize);
