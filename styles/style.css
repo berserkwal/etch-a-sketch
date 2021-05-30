@@ -37,6 +37,7 @@ body {
 	color: var(--color-neutral-200);
 	font-family: var(--font-family);
 	z-index: -1;
+	overflow: hidden;
 }
 
 .background-blur {
